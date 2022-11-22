@@ -7,6 +7,62 @@
 
 import Foundation
 
+enum MainMenu:Int {
+    
+    case buyerLogin = 1,
+         
+        staffLogin
+    
+    
+}
+
+enum BuyerLoginMenu: Int {
+    case login=1,
+         register,
+         mainMenu
+}
+
+
+enum StaffLoginMenu: Int {
+    
+    case auctioneer = 1,
+         auctionManager,
+         mainMenu
+}
+
+
+
+enum BuyerMenu: Int {
+    
+    case placeBid = 1,
+         subMenu ,
+         mainMenu
+}
+
+
+enum BuyerSubMenu: Int {
+    
+    case checkBoughtItems = 1,
+          checkPlacedBids,
+          buyerMenu
+}
+
+enum AuctioneerMenu:Int {
+    
+    case generateAuction = 1,
+         closeAuction,
+         mainMenu
+}
+
+enum AuctionManagerMenu:Int {
+    
+    case addItem = 1,
+         checkItemWithStatus,
+         checkCompletedAuction,
+         mainMenu
+    
+}
+
 class MenuManager {
     
     let input = InputHelper()
@@ -16,14 +72,17 @@ class MenuManager {
         
         printer.printMessage(Message.mainMenu)
         let choice = input.getIntegerInRange(readLine(),2)
-        switch choice {
-        case 1:
+        switch MainMenu(rawValue: choice) {
+        
+        case .buyerLogin:
             buyerLoginMenu()
-        case 2:
-            staffLoginScreen()
+       
+        case .staffLogin:
+            staffLoginMenu()
         default:
             mainMenu()
-    }
+   
+        }
         
 }
   
@@ -33,14 +92,17 @@ class MenuManager {
         
         let choice = input.getIntegerInRange(readLine(), 3)
         
-        switch choice {
+        switch BuyerLoginMenu(rawValue: choice)  {
             
-        case 1:
+        case .login:
             buyerLoginScreen()
-        case 2:
+            
+        case .register:
             buyerRegistrationScreen()
-        case 3:
+            
+        case .mainMenu:
             mainMenu()
+            
         default:
             buyerLoginMenu()
       }
@@ -68,7 +130,7 @@ class MenuManager {
       
         let register = BuyerRegistrationService()
        
-        printer.printMessage(Message.buyerRegistrationScreen)
+        printer.printMessage(Message.buyerRegistration)
         register.registerBuyer()
         
         buyerLoginMenu()
@@ -77,7 +139,7 @@ class MenuManager {
     
   
   
-    func staffLoginScreen() {
+    func staffLoginMenu() {
         
         let loginService = LoginService()
         
@@ -85,21 +147,25 @@ class MenuManager {
         let choice = input.getIntegerInRange(readLine(),3)
         
         do {
-            switch choice {
-            case 1:
+            switch StaffLoginMenu(rawValue: choice) {
+                
+            case .auctioneer:
                 let auctioneer = try loginService.auctioneerLogin()
                 auctioneerMenu(auctioneer)
-            case 2:
+                
+            case .auctionManager:
                 let auctionManager = try loginService.auctionManagerLogin()
                 auctionManagerMenu(auctionManager)
-            case 3:
+                
+            case .mainMenu:
                 mainMenu()
+                
            default:
-                staffLoginScreen()
+                staffLoginMenu()
             }
         } catch {
             print(error)
-            staffLoginScreen()
+            staffLoginMenu()
     }
 
         
@@ -114,8 +180,10 @@ class MenuManager {
     
         let service = UserServices()
         
-        
-       // Print active auction on screen
+
+        printer.printMessage(Message.activeAuction)
+    
+        // Print active auction with auction log on screen
         do {
            
             let auction = try service.getActiveAuction()
@@ -127,12 +195,15 @@ class MenuManager {
             print(error)
             print()
         }
-        //print auction log on screen
+    
         
+        printer.printMessage(Message.itemUpForAuction)
+     
         // print items to be auctioned today on screen
         printer.printMessage(Message.itemListHeader)
         let itemList = service.previewItems()
         itemList.forEach {
+            
             item in printer.printItem(item)
         }
         
@@ -143,41 +214,81 @@ class MenuManager {
    
     func buyerMenu(_ buyer: Buyer) {
         
-      let service = BuyerServices(buyer: buyer)
+        let service = BuyerService(buyer: buyer)
+        
+        
+        func subMenu() {
+            
+            printer.printMessage(Message.buyerSubMenu)
+            
+            let choice = input.getIntegerInRange(readLine(), 3)
+            
+            switch BuyerSubMenu(rawValue: choice) {
+            case .checkBoughtItems:
+               
+                let boughtItemList = service.checkBoughtItems()
+                
+                printer.printMessage(Message.itemListHeader)
+             
+                boughtItemList.forEach {
+                    
+                    item in printer.printItem(item)
+                    
+                }
+                    
+           
+            case .checkPlacedBids:
+                   
+                let bidList = service.checkBidsPlaced()
+                    printer.printMessage(Message.bidListHeader)
+                    
+                    bidList.forEach {
+                        
+                        bid in printer.printBid(bid)
+                        
+                    }
+           
+            case .buyerMenu:
+               
+                buyerMenu(buyer)
+            
+            default:
+                
+                subMenu()
+                
+            }
+            
+            subMenu()
+            
+    }
+        
+        
         
         activeAuctionAndItemList()
         
         printer.printMessage(Message.buyerMenu)
-        let choice = input.getIntegerInRange(readLine(), 4)
+        
+        let choice = input.getIntegerInRange(readLine(), 3)
         do {
-            switch choice {
+            
+            switch BuyerMenu(rawValue: choice) {
                 
-            case 1:
-                try service.placeBid()
-            case 2:
-                let boughtItemList = service.checkBoughtItems()
-                printer.printMessage(Message.itemListHeader)
-             
-                boughtItemList.forEach {
-                    item in printer.printItem(item)
-                    
-                }
-            case 3:
-                let bidList = service.checkBidsPlaced()
-                printer.printMessage(Message.bidListHeader)
+            case .placeBid:
+                  try service.placeBid()
                 
-                bidList.forEach {
-                    bid in printer.printBid(bid)
-                }
-            case 4:
-                mainMenu()
+            case .subMenu:
+                    subMenu()
+                
+            case .mainMenu:
+                  mainMenu()
+                
             default:
                 buyerMenu(buyer)
                 
             }
         } catch {
+            
             print(error)
-            buyerMenu(buyer)
         }
         
         buyerMenu(buyer)
@@ -185,31 +296,41 @@ class MenuManager {
     }
     
     
+    
+
+    
    
     func auctioneerMenu(_ auctioneer: Auctioneer) {
         
-        let service = AuctioneerServices(auctioneer)
+        let service = AuctioneerService(auctioneer)
       
         activeAuctionAndItemList()
+  
+        
 
         printer.printMessage(Message.auctioneerMenu)
         let choice = input.getIntegerInRange(readLine(), 4)
         
         do {
-            switch choice {
+            switch AuctioneerMenu(rawValue: choice) {
                 
-            case 1:
+            case .generateAuction:
+                
                try service.generateAuction()
-            case 2:
+                
+            case .closeAuction:
+                
               try service.closeAuction()
-            case 3:
+                
+            case .mainMenu:
+                
                 mainMenu()
+                
             default:
                 auctioneerMenu(auctioneer)
             }
         } catch {
             print(error)
-            auctioneerMenu(auctioneer)
         }
        
         auctioneerMenu(auctioneer)
@@ -229,15 +350,40 @@ class MenuManager {
         printer.printMessage(Message.auctionManagerMenu)
         let choice = input.getIntegerInRange(readLine(), 4)
         
-        switch choice {
+        switch AuctionManagerMenu(rawValue: choice) {
             
-        case 1:
+        case .addItem:
+            
             service.addItemForAuction()
-        case 2:
+            
+        case .checkItemWithStatus:
+            
+           let itemList = service.checkItems()
+            
+            printer.printMessage(Message.itemListHeader)
+           
+            itemList.forEach {
+               
+                item in printer.printItem(item)
+            }
+            
+        case .checkCompletedAuction:
+            
+            let auctionList = service.checkCompletedAuctions()
+           
+            auctionList.forEach {
+               
+                auction in printer.printAuction(auction)
+            }
+            
+        case .mainMenu:
+            
             mainMenu()
+            
         default:
             auctionManagerMenu(auctionManager)
         }
+        
         auctionManagerMenu(auctionManager)
     }
 }

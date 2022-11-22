@@ -14,27 +14,40 @@ enum BiddingError:Error {
 }
 
 
-class BuyerServices:UserServices {
+class BuyerService:UserServices {
     
     let input = InputHelper()
     
     let buyer : Buyer
+    
+   
     
     init(buyer: Buyer) {
         
         self.buyer = buyer
     }
     
+
+  
+    
+    private func generateLog(_ bid:Bid)->String {
+        
+        return "\(buyer.userName) has placed a bid on auction id:\(bid.auctionId) for amount \(bid.amount)"
+        
+    }
+    
   
   
-  private func generateBid(_ auction: Auction)throws->Bid {
+
+    
+    private func generateBid(_ auction: Auction)throws->Bid {
      
         guard auction.status !=  AuctionStatus.closed else {
             
             throw BiddingError.auctionClosed
         }
         
-        print("enter your bid amount should be greater than the base price")
+        print("enter your bid amount should be greater than the base price and current highest bid")
         let amount = input.getFloatingPoint(readLine())
         
         guard amount>auction.auctionItem.basePrice && amount>auction.currentHighestBid?.amount ?? 0 else {
@@ -48,6 +61,8 @@ class BuyerServices:UserServices {
     
 
     
+   
+    
     func placeBid()throws {
                
             let auction = try getActiveAuction()
@@ -57,16 +72,24 @@ class BuyerServices:UserServices {
             auction.currentHighestBid = bid
              
             buyer.bidList[bid.auctionId] = bid
+        
+            let log = generateLog(bid)
+        
+            auction.auctionLog.append(log)
             
+      
         if auction.status == AuctionStatus.unbid {
         
             auction.status = AuctionStatus.open
         }
          
             
+        
 }
     
 
+   
+    
     func checkBidsPlaced()->[Bid] {
         
         let bidDict = buyer.bidList
@@ -81,6 +104,8 @@ class BuyerServices:UserServices {
     }
     
    
+   
+    
     func checkBoughtItems()->[Item] {
        
         return buyer.boughtItemList

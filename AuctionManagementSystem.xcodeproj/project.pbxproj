@@ -9,24 +9,22 @@
 /* Begin PBXBuildFile section */
 		6D00FC8E2923C07800BFBD90 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D00FC8D2923C07800BFBD90 /* Message.swift */; };
 		6D00FC902924C94F00BFBD90 /* InputHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D00FC8F2924C94F00BFBD90 /* InputHelper.swift */; };
-		6D00FC922924CC6200BFBD90 /* ErrorEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D00FC912924CC6200BFBD90 /* ErrorEnums.swift */; };
+		6D00FC922924CC6200BFBD90 /* DatabaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D00FC912924CC6200BFBD90 /* DatabaseError.swift */; };
 		6D00FC942925179000BFBD90 /* AuctionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D00FC932925179000BFBD90 /* AuctionManager.swift */; };
 		6D00FC9629251CCC00BFBD90 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D00FC9529251CCC00BFBD90 /* DataBase.swift */; };
-		6D00FC982925F12300BFBD90 /* AuctionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D00FC972925F12300BFBD90 /* AuctionStatus.swift */; };
 		6D00FC9A2926021000BFBD90 /* BuyerRegistrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D00FC992926021000BFBD90 /* BuyerRegistrationService.swift */; };
-		6D00FC9C2926156C00BFBD90 /* ValidationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D00FC9B2926156C00BFBD90 /* ValidationHelper.swift */; };
+		6D00FC9C2926156C00BFBD90 /* RegistrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D00FC9B2926156C00BFBD90 /* RegistrationHelper.swift */; };
 		6D00FC9E292637EF00BFBD90 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D00FC9D292637EF00BFBD90 /* LoginService.swift */; };
 		6D00FCA22926428C00BFBD90 /* Staff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D00FCA12926428C00BFBD90 /* Staff.swift */; };
 		6D00FCA42927424000BFBD90 /* AuctionManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D00FCA32927423F00BFBD90 /* AuctionManagerService.swift */; };
-		6D00FCA6292745B000BFBD90 /* ItemEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D00FCA5292745B000BFBD90 /* ItemEnums.swift */; };
 		6D3A67A52923965200BB3BBC /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3A67A42923965200BB3BBC /* main.swift */; };
 		6D3A67AF2923974E00BB3BBC /* Buyer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3A67AE2923974E00BB3BBC /* Buyer.swift */; };
 		6D3A67B12923976E00BB3BBC /* Auctioneer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3A67B02923976E00BB3BBC /* Auctioneer.swift */; };
 		6D3A67B3292397BE00BB3BBC /* Auction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3A67B2292397BE00BB3BBC /* Auction.swift */; };
 		6D3A67B5292397C900BB3BBC /* Bid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3A67B4292397C900BB3BBC /* Bid.swift */; };
 		6D3A67B7292397E100BB3BBC /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3A67B6292397E100BB3BBC /* UserServices.swift */; };
-		6D3A67BA2923980E00BB3BBC /* AuctioneerServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3A67B92923980E00BB3BBC /* AuctioneerServices.swift */; };
-		6D3A67BC2923981D00BB3BBC /* BuyerServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3A67BB2923981D00BB3BBC /* BuyerServices.swift */; };
+		6D3A67BA2923980E00BB3BBC /* AuctioneerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3A67B92923980E00BB3BBC /* AuctioneerService.swift */; };
+		6D3A67BC2923981D00BB3BBC /* BuyerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3A67BB2923981D00BB3BBC /* BuyerService.swift */; };
 		6D3A67BE29239C6B00BB3BBC /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3A67BD29239C6B00BB3BBC /* Item.swift */; };
 		6D3A67C02923BD1E00BB3BBC /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3A67BF2923BD1E00BB3BBC /* MenuManager.swift */; };
 		6D3A67C62923BE4400BB3BBC /* PrintHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3A67C52923BE4400BB3BBC /* PrintHelper.swift */; };
@@ -47,16 +45,14 @@
 /* Begin PBXFileReference section */
 		6D00FC8D2923C07800BFBD90 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		6D00FC8F2924C94F00BFBD90 /* InputHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputHelper.swift; sourceTree = "<group>"; };
-		6D00FC912924CC6200BFBD90 /* ErrorEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorEnums.swift; sourceTree = "<group>"; };
+		6D00FC912924CC6200BFBD90 /* DatabaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseError.swift; sourceTree = "<group>"; };
 		6D00FC932925179000BFBD90 /* AuctionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctionManager.swift; sourceTree = "<group>"; };
 		6D00FC9529251CCC00BFBD90 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
-		6D00FC972925F12300BFBD90 /* AuctionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctionStatus.swift; sourceTree = "<group>"; };
 		6D00FC992926021000BFBD90 /* BuyerRegistrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerRegistrationService.swift; sourceTree = "<group>"; };
-		6D00FC9B2926156C00BFBD90 /* ValidationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationHelper.swift; sourceTree = "<group>"; };
+		6D00FC9B2926156C00BFBD90 /* RegistrationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationHelper.swift; sourceTree = "<group>"; };
 		6D00FC9D292637EF00BFBD90 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		6D00FCA12926428C00BFBD90 /* Staff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Staff.swift; sourceTree = "<group>"; };
 		6D00FCA32927423F00BFBD90 /* AuctionManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctionManagerService.swift; sourceTree = "<group>"; };
-		6D00FCA5292745B000BFBD90 /* ItemEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEnums.swift; sourceTree = "<group>"; };
 		6D3A67A12923965200BB3BBC /* AuctionManagementSystem */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AuctionManagementSystem; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D3A67A42923965200BB3BBC /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		6D3A67AE2923974E00BB3BBC /* Buyer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buyer.swift; sourceTree = "<group>"; };
@@ -64,8 +60,8 @@
 		6D3A67B2292397BE00BB3BBC /* Auction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auction.swift; sourceTree = "<group>"; };
 		6D3A67B4292397C900BB3BBC /* Bid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bid.swift; sourceTree = "<group>"; };
 		6D3A67B6292397E100BB3BBC /* UserServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServices.swift; sourceTree = "<group>"; };
-		6D3A67B92923980E00BB3BBC /* AuctioneerServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctioneerServices.swift; sourceTree = "<group>"; };
-		6D3A67BB2923981D00BB3BBC /* BuyerServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerServices.swift; sourceTree = "<group>"; };
+		6D3A67B92923980E00BB3BBC /* AuctioneerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctioneerService.swift; sourceTree = "<group>"; };
+		6D3A67BB2923981D00BB3BBC /* BuyerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerService.swift; sourceTree = "<group>"; };
 		6D3A67BD29239C6B00BB3BBC /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		6D3A67BF2923BD1E00BB3BBC /* MenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
 		6D3A67C52923BE4400BB3BBC /* PrintHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintHelper.swift; sourceTree = "<group>"; };
@@ -86,9 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				6D00FC8D2923C07800BFBD90 /* Message.swift */,
-				6D00FC912924CC6200BFBD90 /* ErrorEnums.swift */,
-				6D00FC972925F12300BFBD90 /* AuctionStatus.swift */,
-				6D00FCA5292745B000BFBD90 /* ItemEnums.swift */,
+				6D00FC912924CC6200BFBD90 /* DatabaseError.swift */,
 			);
 			path = enums;
 			sourceTree = "<group>";
@@ -127,9 +121,9 @@
 			isa = PBXGroup;
 			children = (
 				6D3A67B6292397E100BB3BBC /* UserServices.swift */,
-				6D3A67B92923980E00BB3BBC /* AuctioneerServices.swift */,
+				6D3A67B92923980E00BB3BBC /* AuctioneerService.swift */,
 				6D00FCA32927423F00BFBD90 /* AuctionManagerService.swift */,
-				6D3A67BB2923981D00BB3BBC /* BuyerServices.swift */,
+				6D3A67BB2923981D00BB3BBC /* BuyerService.swift */,
 				6D00FC992926021000BFBD90 /* BuyerRegistrationService.swift */,
 				6D00FC9D292637EF00BFBD90 /* LoginService.swift */,
 			);
@@ -140,12 +134,12 @@
 			isa = PBXGroup;
 			children = (
 				6D3A67AE2923974E00BB3BBC /* Buyer.swift */,
+				6D00FCA12926428C00BFBD90 /* Staff.swift */,
 				6D3A67B02923976E00BB3BBC /* Auctioneer.swift */,
+				6D00FC932925179000BFBD90 /* AuctionManager.swift */,
 				6D3A67B2292397BE00BB3BBC /* Auction.swift */,
 				6D3A67B4292397C900BB3BBC /* Bid.swift */,
 				6D3A67BD29239C6B00BB3BBC /* Item.swift */,
-				6D00FC932925179000BFBD90 /* AuctionManager.swift */,
-				6D00FCA12926428C00BFBD90 /* Staff.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -171,7 +165,7 @@
 			children = (
 				6D3A67C52923BE4400BB3BBC /* PrintHelper.swift */,
 				6D00FC8F2924C94F00BFBD90 /* InputHelper.swift */,
-				6D00FC9B2926156C00BFBD90 /* ValidationHelper.swift */,
+				6D00FC9B2926156C00BFBD90 /* RegistrationHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -234,22 +228,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D00FCA6292745B000BFBD90 /* ItemEnums.swift in Sources */,
 				6D3A67B5292397C900BB3BBC /* Bid.swift in Sources */,
-				6D00FC9C2926156C00BFBD90 /* ValidationHelper.swift in Sources */,
+				6D00FC9C2926156C00BFBD90 /* RegistrationHelper.swift in Sources */,
 				6D3A67BE29239C6B00BB3BBC /* Item.swift in Sources */,
 				6D3A67C02923BD1E00BB3BBC /* MenuManager.swift in Sources */,
-				6D3A67BC2923981D00BB3BBC /* BuyerServices.swift in Sources */,
-				6D00FC982925F12300BFBD90 /* AuctionStatus.swift in Sources */,
+				6D3A67BC2923981D00BB3BBC /* BuyerService.swift in Sources */,
 				6D3A67C62923BE4400BB3BBC /* PrintHelper.swift in Sources */,
 				6D00FC9E292637EF00BFBD90 /* LoginService.swift in Sources */,
 				6D00FC942925179000BFBD90 /* AuctionManager.swift in Sources */,
 				6D3A67A52923965200BB3BBC /* main.swift in Sources */,
 				6D00FC8E2923C07800BFBD90 /* Message.swift in Sources */,
-				6D00FC922924CC6200BFBD90 /* ErrorEnums.swift in Sources */,
+				6D00FC922924CC6200BFBD90 /* DatabaseError.swift in Sources */,
 				6D00FCA22926428C00BFBD90 /* Staff.swift in Sources */,
 				6D00FC902924C94F00BFBD90 /* InputHelper.swift in Sources */,
-				6D3A67BA2923980E00BB3BBC /* AuctioneerServices.swift in Sources */,
+				6D3A67BA2923980E00BB3BBC /* AuctioneerService.swift in Sources */,
 				6D3A67B12923976E00BB3BBC /* Auctioneer.swift in Sources */,
 				6D3A67AF2923974E00BB3BBC /* Buyer.swift in Sources */,
 				6D3A67B7292397E100BB3BBC /* UserServices.swift in Sources */,

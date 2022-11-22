@@ -7,6 +7,30 @@
 
 import Foundation
 
+enum ItemCategory:Int,Codable {
+    
+    case used = 1
+    
+    case unUsed
+    
+    case antique
+    
+    case artifact
+    
+}
+
+
+enum ItemStatus:String,Codable {
+    
+    case drafted = "drafted"
+    
+    case published =  "ongoing"
+    
+    case sold = "sold"
+    
+    case unsold = "unsold"
+}
+
 class Item:Codable {
     
     let id:Int
@@ -14,11 +38,14 @@ class Item:Codable {
     let description:String
     let basePrice:Float
     let category: ItemCategory
-    var isSold: Bool = false
+    var status: ItemStatus = ItemStatus.drafted
+    var sellingPrice:Float = 0
 
-    var commision: Float {
+   
+    var tax: Float {
        get {
            switch category {
+          
            case .used:
                return basePrice * 0.1
            case .unUsed:
@@ -27,15 +54,19 @@ class Item:Codable {
                return basePrice * 0.3
            case .artifact:
                return  basePrice * 0.25
+               
            }
         }
     }
     
+  
     init(id: Int,name:String,description: String, basePrice: Float, category: ItemCategory) {
+      
         self.id = id
         self.name = name
         self.description = description
         self.basePrice = basePrice
         self.category = category
+        
     }
 }

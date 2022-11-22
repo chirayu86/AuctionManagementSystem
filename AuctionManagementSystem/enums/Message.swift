@@ -5,7 +5,6 @@
 //  Created by chirayu-pt6280 on 15/11/22.
 //
 
-import Foundation
 
 enum Message:String {
     
@@ -18,7 +17,11 @@ enum Message:String {
                                4.artifact
                              """
     
-    
+    case selectItemStatus = """
+                            1.drafted
+                            2.unsold
+                            3.sold
+                            """
     //MAIN MENU MESSAGES
     case mainMenu = """
                       1.customer login
@@ -40,6 +43,7 @@ enum Message:String {
     case auctionManagerMenu = """
                               1.add item
                               2.check unsold items
+                              3.check completed auctions
                               4.main menu
                              """
     
@@ -51,22 +55,37 @@ enum Message:String {
   
     case buyerMenu = """
                      1.place bid
-                     2.check bought items
-                     3.check placed bids
-                     4.main menu
+                     2.my menu
+                     3.main menu
                      """
-    
-    case buyerRegistrationScreen = "enter your details and register"
+ 
+    case buyerSubMenu = """
+                         1.check bought items
+                         2.check placed bids
+                         3.return to buyer menu
+                         """
+   
+   
+    case buyerRegistration = "enter your details and register"
                                     
     
-    case buyerLoginScreen = "enter your userName and 4 digit pin"
+   
+    case buyerLogin = "enter your userName and 4 digit pin"
     
-    case staffLoginScreen = "enter your password"
+  
+    case staffLogin = "enter your password"
     
 
-    case itemListHeader = "ID    NAME    CATEGORY    BASEPRICE    SOLD    DESCRIPTION"
+    case itemListHeader = "ID      NAME            BASEPRICE        SOLDFOR        STATUS      DESCRIPTION"
     
-    case bidListHeader = "USERNAME    AMOUNT    AUCTIONID"
+   
+    case bidListHeader = "USERNAME     AMOUNT     AUCTIONID"
+    
+   
+    case activeAuction = "ACTIVE AUCTION------------"
+    
+ 
+    case itemUpForAuction = "Items Up For auction------"
 }
 
 

@@ -9,7 +9,16 @@ import Foundation
 
 class AuctionManagerService :UserServices {
     
+    let auctionManager : AuctionManager
+    
+    init(_ auctionManager : AuctionManager) {
+        
+        self.auctionManager =  auctionManager
+}
+    
     let input = InputHelper()
+    
+    let itemGenerator = ItemGenerationService()
     
     
     class ItemGenerationService {
@@ -17,23 +26,25 @@ class AuctionManagerService :UserServices {
         let input = InputHelper()
         
         
-        private func generateUniqueId()->Int    {
+         private func generateUniqueId()->Int    {
             
-            let validator = ValidationHelper()
+            let registerationHelper = RegistrationHelper()
             
-            let number = arc4random_uniform(100)*arc4random_uniform(100)
+//            let number = arc4random_uniform(100)*arc4random_uniform(100)
+          
+             let number = Int.random(in: 1...100)*Int.random(in: 1...100)
             
-            guard validator.isItemIdValid(Int(number)) else {
+            guard registerationHelper.isItemIdAvailable(Int(number)) else {
                 
                 return generateUniqueId()
             }
             
-            return Int(number)
+            return number
 }
         
         
         
-        private func selectItemCategory()->ItemCategory {
+       private func selectItemCategory()->ItemCategory {
             
             let printer = PrintHelper()
             
@@ -69,24 +80,77 @@ class AuctionManagerService :UserServices {
 
     
     
-    let auctionManager : AuctionManager
+   
     
     
     
     func addItemForAuction() {
         
-        let itemGenerator = ItemGenerationService()
         
         let item = itemGenerator.generateItem()
         
         dataBase.storeItemToDataBase(item)
         
+        print("item added successfully")
     }
     
     
-    init(_ auctionManager : AuctionManager) {
+    
+ 
+    
+    
+    private func selectItemStatus()->ItemStatus {
         
-        self.auctionManager =  auctionManager
-}
+        let printer = PrintHelper()
+        
+        printer.printMessage(Message.selectItemStatus)
+        let choice = input.getIntegerInRange(readLine(), 3)
+        
+        switch choice {
+        case 1:
+            return ItemStatus.drafted
+        case 2:
+            return ItemStatus.unsold
+        case 3:
+            return ItemStatus.sold
+        default:
+            return ItemStatus.unsold
+        }
+        
+    }
+    
+    
+    
+    func checkItems()->[Item] {
+        
+        let itemList = previewItems()
+       
+        let status = selectItemStatus()
+        
+        var specificList:[Item] = []
+        
+        for item in itemList {
+            
+            if item.status == status {
+               
+                specificList.append(item)
+            }
+        }
+        return specificList
+        
+    }
+    
+    
+    
+    
+    func checkCompletedAuctions()->[Auction]  {
+        
+        return dataBase.getCompletedAuction()
+    }
+   
+    
+    
+  
+    
     
 }

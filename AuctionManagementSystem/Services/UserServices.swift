@@ -18,6 +18,7 @@ class UserServices {
         var itemList:[Item] = []
         
         itemDict.values.forEach {
+           
             item in itemList.append(item)
         }
         
@@ -29,7 +30,7 @@ class UserServices {
         
         guard let auction = dataBase.getAuction()  else {
             
-            throw ValidationError.noActiveAuction
+            throw DataBaseError.noActiveAuction
         }
         
         return auction

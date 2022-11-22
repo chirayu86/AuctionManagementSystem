@@ -19,16 +19,17 @@ class InputHelper {
             
         }
       
+        
        
         guard  unwrappedInput.isEmpty == false else {
             
-            print("empty string pls enter again")
+            print("pls enter a value in input")
             return getNonEmptyString(readLine())
             
         }
         
         return unwrappedInput
-}
+     }
     
     
  
@@ -44,7 +45,7 @@ class InputHelper {
         }
         
         return integerInput
-}
+    }
     
     
  
@@ -60,7 +61,7 @@ class InputHelper {
         }
         
         return checkedInput
-}
+    }
     
   
   
@@ -75,7 +76,7 @@ class InputHelper {
         }
         
         return floatInput
-}
+     }
     
  
 
@@ -91,7 +92,7 @@ class InputHelper {
         }
         
         return nonEmptyString
-}
+    }
     
  
     

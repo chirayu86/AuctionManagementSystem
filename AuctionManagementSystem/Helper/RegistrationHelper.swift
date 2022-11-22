@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ValidationHelper {
+class RegistrationHelper {
     
     let dataBase = DataBase.sharedDb
 
@@ -19,13 +19,13 @@ class ValidationHelper {
         
         guard buyerDict.keys.contains(userName) == false else {
             
-            throw ValidationError.userNameAlreadyTaken
+            throw DataBaseError.userNameAlreadyTaken
         }
         
-}
+    }
     
     
-    func isItemIdValid(_ id:Int)->Bool {
+    func isItemIdAvailable(_ id:Int)->Bool {
         
         let itemDict = dataBase.getItemDict()
         
@@ -36,7 +36,7 @@ class ValidationHelper {
         
         return true
         
-}
+   }
   
     
 }

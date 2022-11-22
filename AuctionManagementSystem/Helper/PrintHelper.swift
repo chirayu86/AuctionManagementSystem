@@ -11,52 +11,82 @@ class PrintHelper {
     
 
 private func printDottedLine(_ char: Character) {
+    
+        print()
         for _ in 0..<100 {
             print(char,terminator: "")
         }
+        print()
         print()
     }
     
    
     
     func printMessage(_ message: Message) {
+      
         printDottedLine("-")
         print(message.rawValue)
         printDottedLine("-")
+        
+    }
+    
+  
+    
+    func printAuctionLog(_ auctionLog: [String]) {
+        
+        guard auctionLog.isEmpty == false else {
+            print("log is empty")
+            return
+        }
+        auctionLog.forEach {
+            log in  printDottedLine("-")
+            print(log)
+        }
     }
     
   
     func printAuction(_ auction: Auction) {
       
         print("""
+                ===================================================================================================
+                  id : \(auction.id)
+                ---------------------------------------------------------------------------------------------------
+                 Item Name: \(auction.auctionItem.name)
                 
-                
-                ----------------------------------------------------------
-                id : \(auction.id)
-                -----------------------------------------------------------
-                the auction is for item \(auction.auctionItem.name)
                  Description: \(auction.auctionItem.description)
-                 Baseprice: \(auction.auctionItem.basePrice)
-                 current higest bid: \(auction.currentHighestBid?.amount ?? 0)
-                ------------------------------------------------------------
+                 Baseprice:  \(auction.auctionItem.basePrice)
                 
+                 highest bid: \(auction.currentHighestBid?.amount ?? 0)
                 
+                 Winner:  \(auction.winner)
+                
+                ======================AuctionLog====================================================================
                 """
               )
+                printAuctionLog(auction.auctionLog)
+                printDottedLine("=")
+    
         
     }
     
   
     
     func printItem(_ item:Item) {
-        
-        print(item.id,item.name,item.category,item.basePrice,item.isSold,item.description,separator: "    ")
+          
+        print(
+              item.id.description.padding(toLength: 4, withPad: " ", startingAt: 0),
+              item.name.padding(toLength: 15, withPad: " ", startingAt: 0),
+              item.basePrice.description.padding(toLength: 10, withPad: " ", startingAt: 0),
+              item.sellingPrice.description.padding(toLength: 10, withPad: " ", startingAt: 0),
+              item.status.rawValue,item.description.padding(toLength: 25, withPad: " ", startingAt: 0),separator: "    ")
+       
+        printDottedLine("-")
     }
    
     
     func printBid(_ bid:Bid) {
         
-        print(bid.buyerUsername,bid.amount,bid.auctionId,separator: "    ")
+        print(bid.buyerUsername,bid.amount,bid.auctionId,separator: "      ")
         
     }
     

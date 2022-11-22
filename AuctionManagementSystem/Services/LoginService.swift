@@ -7,6 +7,15 @@
 
 import Foundation
 
+enum LoginError:Error {
+    
+    case invalidPassword
+    
+    case noUserFound
+    
+}
+
+
 class LoginService {
     
     let input = InputHelper()
@@ -18,7 +27,7 @@ class LoginService {
         
         let buyerDictonary = dataBase.getBuyerDict()
         
-        printer.printMessage(Message.buyerLoginScreen)
+        printer.printMessage(Message.buyerLogin)
         
         let userName = input.getNonEmptyString(readLine())
         let pin = input.getInteger(readLine())
@@ -40,7 +49,7 @@ class LoginService {
     
     func auctioneerLogin()throws->Auctioneer {
         
-        printer.printMessage(Message.staffLoginScreen)
+        printer.printMessage(Message.staffLogin)
         
         let password = input.getNonEmptyString(readLine())
         
@@ -58,7 +67,7 @@ class LoginService {
   
     func auctionManagerLogin()throws->AuctionManager {
         
-        printer.printMessage(Message.staffLoginScreen)
+        printer.printMessage(Message.staffLogin)
         
         let password = input.getNonEmptyString(readLine())
         
