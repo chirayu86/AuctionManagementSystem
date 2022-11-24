@@ -43,8 +43,10 @@ class BuyerRegistrationService {
             database.storeBuyertoDataBase(buyer)
             
         } catch {
+           
             print(error)
             registerBuyer()
+            
         }
     }
 }

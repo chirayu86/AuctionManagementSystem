@@ -12,12 +12,11 @@ class PrintHelper {
 
 private func printDottedLine(_ char: Character) {
     
-        print()
+        
         for _ in 0..<100 {
             print(char,terminator: "")
         }
-        print()
-        print()
+       print()
     }
     
    
@@ -77,13 +76,14 @@ private func printDottedLine(_ char: Character) {
               item.id.description.padding(toLength: 4, withPad: " ", startingAt: 0),
               item.name.padding(toLength: 15, withPad: " ", startingAt: 0),
               item.basePrice.description.padding(toLength: 10, withPad: " ", startingAt: 0),
-              item.sellingPrice.description.padding(toLength: 10, withPad: " ", startingAt: 0),
+              item.sellingPrice.description.padding(toLength: 7, withPad: " ", startingAt: 0),
               item.status.rawValue,item.description.padding(toLength: 25, withPad: " ", startingAt: 0),separator: "    ")
        
         printDottedLine("-")
     }
    
     
+   
     func printBid(_ bid:Bid) {
         
         print(bid.buyerUsername,bid.amount,bid.auctionId,separator: "      ")

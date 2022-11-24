@@ -14,9 +14,11 @@ class Bid:Codable {
     let auctionId:Int
     
     init(amount: Float, buyerUsername: String, auctionId: Int) {
+       
         self.amount = amount
         self.buyerUsername = buyerUsername
         self.auctionId = auctionId
+
     }
     
 }

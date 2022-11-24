@@ -17,6 +17,7 @@
 		6D00FC9E292637EF00BFBD90 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D00FC9D292637EF00BFBD90 /* LoginService.swift */; };
 		6D00FCA22926428C00BFBD90 /* Staff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D00FCA12926428C00BFBD90 /* Staff.swift */; };
 		6D00FCA42927424000BFBD90 /* AuctionManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D00FCA32927423F00BFBD90 /* AuctionManagerService.swift */; };
+		6D00FCA8292E76CF00BFBD90 /* ItemGenerationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D00FCA7292E76CF00BFBD90 /* ItemGenerationService.swift */; };
 		6D3A67A52923965200BB3BBC /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3A67A42923965200BB3BBC /* main.swift */; };
 		6D3A67AF2923974E00BB3BBC /* Buyer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3A67AE2923974E00BB3BBC /* Buyer.swift */; };
 		6D3A67B12923976E00BB3BBC /* Auctioneer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3A67B02923976E00BB3BBC /* Auctioneer.swift */; };
@@ -53,6 +54,7 @@
 		6D00FC9D292637EF00BFBD90 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		6D00FCA12926428C00BFBD90 /* Staff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Staff.swift; sourceTree = "<group>"; };
 		6D00FCA32927423F00BFBD90 /* AuctionManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctionManagerService.swift; sourceTree = "<group>"; };
+		6D00FCA7292E76CF00BFBD90 /* ItemGenerationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemGenerationService.swift; sourceTree = "<group>"; };
 		6D3A67A12923965200BB3BBC /* AuctionManagementSystem */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AuctionManagementSystem; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D3A67A42923965200BB3BBC /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		6D3A67AE2923974E00BB3BBC /* Buyer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buyer.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				6D3A67BB2923981D00BB3BBC /* BuyerService.swift */,
 				6D00FC992926021000BFBD90 /* BuyerRegistrationService.swift */,
 				6D00FC9D292637EF00BFBD90 /* LoginService.swift */,
+				6D00FCA7292E76CF00BFBD90 /* ItemGenerationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				6D3A67AF2923974E00BB3BBC /* Buyer.swift in Sources */,
 				6D3A67B7292397E100BB3BBC /* UserServices.swift in Sources */,
 				6D00FC9A2926021000BFBD90 /* BuyerRegistrationService.swift in Sources */,
+				6D00FCA8292E76CF00BFBD90 /* ItemGenerationService.swift in Sources */,
 				6D00FCA42927424000BFBD90 /* AuctionManagerService.swift in Sources */,
 				6D00FC9629251CCC00BFBD90 /* DataBase.swift in Sources */,
 				6D3A67B3292397BE00BB3BBC /* Auction.swift in Sources */,

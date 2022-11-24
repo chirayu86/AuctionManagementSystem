@@ -36,7 +36,13 @@ class AuctioneerService: UserServices {
 
     let auctioneer : Auctioneer
   
-   
+    init(_ auctioneer: Auctioneer) {
+        
+       self.auctioneer = auctioneer
+        
+    }
+    
+  
     
     func generateAuction()throws {
      
@@ -78,12 +84,16 @@ class AuctioneerService: UserServices {
      
         let auction = try getActiveAuction()
         
+   
+        
         guard auction.status != AuctionStatus.closed else {
             
             throw AuctionError.auctionAlreadyClosed
         }
         
    
+    
+        
         guard auction.status != AuctionStatus.unbid else {
            
             auction.status = AuctionStatus.closed
@@ -99,7 +109,10 @@ class AuctioneerService: UserServices {
         }
         
       
+        
+        
         if auction.status == AuctionStatus.open {
+           
            
             let buyerList = dataBase.getBuyerDict()
             
@@ -138,17 +151,10 @@ class AuctioneerService: UserServices {
             
           
             dataBase.addToCompeletedAuction(auction)
+            
         }
     }
   
-    
- 
-    
-    init(_ auctioneer: Auctioneer) {
-        
-       self.auctioneer = auctioneer
-        
-    }
     
     
 }

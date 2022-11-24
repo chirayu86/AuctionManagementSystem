@@ -26,7 +26,7 @@ enum ItemStatus:String,Codable {
     
     case published =  "ongoing"
     
-    case sold = "sold"
+    case sold = "-sold--"
     
     case unsold = "unsold"
 }

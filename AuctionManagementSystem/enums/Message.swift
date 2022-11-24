@@ -42,9 +42,8 @@ enum Message:String {
     
     case auctionManagerMenu = """
                               1.add item
-                              2.check unsold items
-                              3.check completed auctions
-                              4.main menu
+                              2.my menu
+                              3.main menu
                              """
     
     case auctioneerMenu = """
@@ -65,6 +64,11 @@ enum Message:String {
                          3.return to buyer menu
                          """
    
+    case auctionManagerSubMenu = """
+                                  1.check item list acc to status
+                                  2.check completed auction
+                                  3.auction manager main menu
+                                """
    
     case buyerRegistration = "enter your details and register"
                                     
@@ -76,7 +80,7 @@ enum Message:String {
     case staffLogin = "enter your password"
     
 
-    case itemListHeader = "ID      NAME            BASEPRICE        SOLDFOR        STATUS      DESCRIPTION"
+    case itemListHeader = "ID      NAME             BASEPRICE     SOLDFOR      STATUS      DESCRIPTION"
     
    
     case bidListHeader = "USERNAME     AMOUNT     AUCTIONID"

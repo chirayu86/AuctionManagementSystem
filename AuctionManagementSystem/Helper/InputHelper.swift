@@ -28,11 +28,14 @@ class InputHelper {
             
         }
         
+        
         return unwrappedInput
      }
     
     
  
+
+
     func getInteger(_ input: String?)->Int {
         
         let nonEmptyInput = getNonEmptyString(input)
@@ -49,6 +52,8 @@ class InputHelper {
     
     
  
+ 
+    
     func getIntegerInRange(_ input:String?,_ range: Int)->Int {
         
         let checkedInput = getInteger(input)
@@ -65,6 +70,8 @@ class InputHelper {
     
   
   
+   
+    
     func getFloatingPoint(_ string:String?)->Float {
         
         let nonEmptyString = getNonEmptyString(string)
@@ -80,6 +87,8 @@ class InputHelper {
     
  
 
+   
+    
     func getName(_ input: String?)->String {
      
         let nonEmptyString = getNonEmptyString(input)
