@@ -10,6 +10,7 @@ import Foundation
 class InputHelper {
     
   
+    
     func getNonEmptyString(_ input: String?)->String {
         
         guard  let unwrappedInput = input else {
@@ -21,6 +22,7 @@ class InputHelper {
       
         
        
+     
         guard  unwrappedInput.isEmpty == false else {
             
             print("pls enter a value in input")

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Bid:Codable {
+class Bid {
     
     let amount: Float
     let buyerUsername:String

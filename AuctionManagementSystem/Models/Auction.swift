@@ -32,7 +32,6 @@ class Auction {
        
         self.id = auctionItem.id
         self.auctionItem = auctionItem
-        self.currentHighestBid = nil
         self.status = AuctionStatus.unbid
         
     }

@@ -11,10 +11,13 @@ class AuctionManagerService :UserServices {
     
     let auctionManager : AuctionManager
     
+
     init(_ auctionManager : AuctionManager) {
         
         self.auctionManager =  auctionManager
 }
+    
+  
     
     let input = InputHelper()
     

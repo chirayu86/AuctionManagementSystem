@@ -43,6 +43,8 @@ class BuyerRegistrationService {
             let buyer = Buyer(userName: userName, name: name, address: address,pin: pin)
             database.storeBuyertoDataBase(buyer)
             
+            print("successfully registered")
+            
         } catch {
            
             print(error)

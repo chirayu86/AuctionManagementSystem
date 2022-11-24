@@ -42,20 +42,24 @@ class BuyerService:UserServices {
     
     private func generateBid(_ auction: Auction)throws->Bid {
      
+       
         guard auction.status !=  AuctionStatus.closed else {
             
             throw BiddingError.auctionClosed
         }
         
+        
         print("enter your bid amount should be greater than the base price and current highest bid")
         let amount = input.getFloatingPoint(readLine())
         
+       
         guard amount>auction.auctionItem.basePrice && amount>auction.currentHighestBid?.amount ?? 0 else {
            
             throw BiddingError.bidShouldbBeHigher
         }
        
-      return Bid(amount: amount, buyerUsername: buyer.userName, auctionId: auction.id)
+     
+        return Bid(amount: amount, buyerUsername: buyer.userName, auctionId: auction.id)
       
     }
     

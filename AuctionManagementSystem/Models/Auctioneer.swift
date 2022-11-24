@@ -8,8 +8,9 @@
 import Foundation
 
 
-class Auctioneer : Staff {
+class Auctioneer  {
     
+   
     let name :String
     let id : Int
     let password: String
@@ -19,4 +20,6 @@ class Auctioneer : Staff {
         self.id = id
         self.password = password
     }
+    
+    
 }

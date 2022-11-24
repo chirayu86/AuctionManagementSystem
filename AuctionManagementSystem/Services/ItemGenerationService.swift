@@ -17,10 +17,12 @@ class ItemGenerationService {
      private func generateUniqueId()->Int    {
         
         let registerationHelper = RegistrationHelper()
+         
+         let number = (0...999).randomElement()!
       
-         let number = Int.random(in: 1...100)*Int.random(in: 1...100)
+         //let number = Int.random(in: 1...100)*Int.random(in: 1...100)
         
-        guard registerationHelper.isItemIdAvailable(Int(number)) else {
+        guard registerationHelper.isItemIdAvailable(number) else {
             
             return generateUniqueId()
         }

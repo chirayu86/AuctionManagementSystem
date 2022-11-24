@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AuctionManager : Staff {
+class AuctionManager  {
     
     let name: String
     let id: Int

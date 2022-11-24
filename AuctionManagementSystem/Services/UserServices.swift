@@ -17,12 +17,12 @@ class UserServices {
         let itemDict = dataBase.getItemDict()
         var itemList:[Item] = []
         
-        itemDict.values.forEach {
+          itemDict.values.forEach {
            
             item in itemList.append(item)
         }
         
-        return itemList
+          return itemList.sorted(by: {$0.id < $1.id})
     }
     
     

@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct Address:Codable {
+struct Address {
     
     let state:String
     let city:String
     let pincode:Int
 }
 
-class Buyer:Codable{
+class Buyer{
     
     let userName:String
     let name:String

@@ -61,13 +61,15 @@ enum Message:String {
     case buyerSubMenu = """
                          1.check bought items
                          2.check placed bids
-                         3.return to buyer menu
+                         3.check items up for auction
+                         4.return to buyer menu
                          """
    
     case auctionManagerSubMenu = """
                                   1.check item list acc to status
                                   2.check completed auction
-                                  3.auction manager main menu
+                                  3.check items up for auction
+                                  4.auction manager main menu
                                 """
    
     case buyerRegistration = "enter your details and register"

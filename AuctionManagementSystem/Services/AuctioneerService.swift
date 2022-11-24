@@ -48,10 +48,13 @@ class AuctioneerService: UserServices {
      
         let auction = dataBase.getAuction()
         
+        
         guard auction == nil || auction?.status == AuctionStatus.closed else {
             
             throw AuctionError.closeActiveAuctionFirst
         }
+        
+       
             
             print("enter the id of item you want to start the auction for")
             let id = input.getInteger(readLine())
@@ -80,6 +83,8 @@ class AuctioneerService: UserServices {
     
     
   
+  
+    
     func closeAuction()throws {
      
         let auction = try getActiveAuction()
@@ -115,41 +120,46 @@ class AuctioneerService: UserServices {
            
            
             let buyerList = dataBase.getBuyerDict()
-            
+        
            
+          
         
             guard let bid = auction.currentHighestBid else {
             
-                assertionFailure("there must be a current higest bid if the auction is open")
+                assertionFailure("there must be a current higest bid if the auction is open: \(#file)")
                 return
             }
             
           
             guard  let winner = buyerList[bid.buyerUsername] else {
                 
-                assertionFailure("biding user should be present in database")
+                assertionFailure("biding user should be present in database: \(#file)")
                 return
             }
           
-            
-            auction.auctionItem.status = ItemStatus.sold
+            // set item status and selling amount
+            auction.auctionItem.status = .sold
             
        
-            auction.auctionItem.sellingPrice = bid.amount //+ auction.auctionItem.tax
+            auction.auctionItem.sellingPrice = bid.amount
            
-        
+            
+            //append item to winners boughtItemList
             winner.boughtItemList.append(auction.auctionItem)
             
           
+            // write to auction log
             auction.auctionLog.append(AuctionLogMessage.auctionClosedWithBid.rawValue)
             
           
+            //set auction winner name
             auction.winner = winner.userName
             
-        
+            //set auction status to close
             auction.status = AuctionStatus.closed
             
           
+            //add to completed auction
             dataBase.addToCompeletedAuction(auction)
             
         }
