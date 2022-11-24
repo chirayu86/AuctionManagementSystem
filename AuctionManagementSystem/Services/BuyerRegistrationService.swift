@@ -14,6 +14,7 @@ class BuyerRegistrationService {
     let registerationHelper = RegistrationHelper()
     
     func registerBuyer() {
+       
         do
         {
             print("enter your username")

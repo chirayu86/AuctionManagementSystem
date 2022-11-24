@@ -366,6 +366,7 @@ class MenuManager {
             
             
         case .subMenu:
+          
             auctionManagerSubMenu(auctionManager)
             
         case .mainMenu:

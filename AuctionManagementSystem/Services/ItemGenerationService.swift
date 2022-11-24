@@ -17,8 +17,6 @@ class ItemGenerationService {
      private func generateUniqueId()->Int    {
         
         let registerationHelper = RegistrationHelper()
-        
-//            let number = arc4random_uniform(100)*arc4random_uniform(100)
       
          let number = Int.random(in: 1...100)*Int.random(in: 1...100)
         
@@ -28,11 +26,12 @@ class ItemGenerationService {
         }
         
         return number
-}
+         
+     }
     
     
     
-   private func selectItemCategory()->ItemCategory {
+    private func selectItemCategory()->ItemCategory {
         
         let printer = PrintHelper()
         
@@ -41,7 +40,7 @@ class ItemGenerationService {
         
         return ItemCategory(rawValue: choice) ?? ItemCategory.used
         
-}
+    }
     
     
     
@@ -61,8 +60,7 @@ class ItemGenerationService {
         
         return Item(id: id,name:name,description: desc, basePrice: basePrice, category: category)
         
-        
-}
+        }
     
 }
 
