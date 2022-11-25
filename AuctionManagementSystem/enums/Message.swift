@@ -18,14 +18,16 @@ enum Message:String {
                              """
     
     case selectItemStatus = """
+                            select the type of item list you want to see
+                            ============================================
                             1.drafted
                             2.unsold
                             3.sold
                             """
     //MAIN MENU MESSAGES
     case mainMenu = """
-                      1.customer login
-                      2.staff login
+                      1.Buyer login
+                      2.Staff login
                      """
  
     case staffLoginMenu = """
@@ -66,7 +68,7 @@ enum Message:String {
                          """
    
     case auctionManagerSubMenu = """
-                                  1.check item list acc to status
+                                  1.check item list according to status
                                   2.check completed auction
                                   3.check items up for auction
                                   4.auction manager main menu
@@ -82,7 +84,7 @@ enum Message:String {
     case staffLogin = "enter your password"
     
 
-    case itemListHeader = "ID      NAME             BASEPRICE     SOLDFOR      STATUS      DESCRIPTION"
+    case itemListHeader = "ID      NAME             BASE-PRICE    SELLING-PRICE      STATUS      DESCRIPTION"
     
    
     case bidListHeader = "USERNAME     AMOUNT     AUCTIONID"

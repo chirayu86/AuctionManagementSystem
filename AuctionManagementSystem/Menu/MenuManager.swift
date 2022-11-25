@@ -97,6 +97,7 @@ class MenuManager {
         
     }
     
+    
     func buyerLoginMenu() {
         
         printHelper.printMessage(Message.buyerLoginMenu)
@@ -122,6 +123,7 @@ class MenuManager {
     }
     
     
+    
     func buyerLoginScreen() {
         
         let loginService = LoginService()
@@ -137,6 +139,7 @@ class MenuManager {
     }
     
     
+    
     func buyerRegistrationScreen() {
         
         let register = BuyerRegistrationService()
@@ -146,6 +149,7 @@ class MenuManager {
         
         buyerLoginMenu()
     }
+    
     
     
     
@@ -187,6 +191,7 @@ class MenuManager {
     
     
     
+    
     func activeAuction() {
         
         let service = UserServices()
@@ -211,7 +216,7 @@ class MenuManager {
         
     
     
-    func itemList() {
+    func showItemList() {
         
         let service = UserServices()
         
@@ -223,6 +228,7 @@ class MenuManager {
             item in printHelper.printItem(item)
         }
     }
+    
     
     
     
@@ -264,6 +270,7 @@ class MenuManager {
     }
     
     
+    
     func buyerSubMenu(_ buyer: Buyer) {
         
         let service = BuyerService(buyer: buyer)
@@ -274,6 +281,7 @@ class MenuManager {
         
         switch BuyerSubMenu(rawValue: choice) {
             
+      
         case .checkBoughtItems:
             
             let boughtItemList = service.checkBoughtItems()
@@ -299,7 +307,7 @@ class MenuManager {
             }
         case .previewItems:
                 
-                    itemList()
+                    showItemList()
             
         case .buyerMenu:
             
@@ -317,6 +325,7 @@ class MenuManager {
     
     
     
+    
     func auctioneerMenu(_ auctioneer: Auctioneer) {
         
         let service = AuctioneerService(auctioneer)
@@ -330,7 +339,7 @@ class MenuManager {
             switch AuctioneerMenu(rawValue: choice) {
                 
             case .generateAuction:
-                itemList()
+                showItemList()
                 try service.generateAuction()
                 
             case .closeAuction:
@@ -356,6 +365,8 @@ class MenuManager {
     
     
     
+    
+  
     func auctionManagerMenu(_ auctionManager: AuctionManager) {
         
         let service = AuctionManagerService(auctionManager)
@@ -389,8 +400,11 @@ class MenuManager {
         auctionManagerMenu(auctionManager)
     }
     
+    
    
     
+ 
+  
     func auctionManagerSubMenu(_ auctionManager:AuctionManager) {
         
         let service = AuctionManagerService(auctionManager)
@@ -430,7 +444,7 @@ class MenuManager {
             
         case .previewItems:
                    
-                   itemList()
+                   showItemList()
                 
         case .auctionManagerMenu:
                

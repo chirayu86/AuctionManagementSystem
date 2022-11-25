@@ -19,9 +19,7 @@ class ItemGenerationService {
         let registerationHelper = RegistrationHelper()
          
          let number = (0...999).randomElement()!
-      
-         //let number = Int.random(in: 1...100)*Int.random(in: 1...100)
-        
+            
         guard registerationHelper.isItemIdAvailable(number) else {
             
             return generateUniqueId()

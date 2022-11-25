@@ -20,14 +20,14 @@ class LoginService {
     
     let input = InputHelper()
     let dataBase = DataBase.sharedDb
-    let printer = PrintHelper()
+    let printHelper = PrintHelper()
     
   
     func buyerlogin()throws->Buyer {
         
         let buyerDictonary = dataBase.getBuyerDict()
         
-        printer.printMessage(Message.buyerLogin)
+        printHelper.printMessage(Message.buyerLogin)
         
         let userName = input.getNonEmptyString(readLine())
         let pin = input.getInteger(readLine())
@@ -49,12 +49,13 @@ class LoginService {
     
     func auctioneerLogin()throws->Auctioneer {
         
-        printer.printMessage(Message.staffLogin)
-        
+        printHelper.printMessage(Message.staffLogin)
         let password = input.getNonEmptyString(readLine())
         
+       
         let auctioneer = dataBase.getauctioneer()
         
+      
         guard auctioneer.password == password else {
             
             throw LoginError.invalidPassword
@@ -67,17 +68,19 @@ class LoginService {
   
     func auctionManagerLogin()throws->AuctionManager {
         
-        printer.printMessage(Message.staffLogin)
-        
+        printHelper.printMessage(Message.staffLogin)
         let password = input.getNonEmptyString(readLine())
         
+      
         let auctionManager = dataBase.getauctionManager()
         
+       
         guard auctionManager.password == password else {
         
             throw LoginError.invalidPassword
         }
         
+       
         return auctionManager
 }
     

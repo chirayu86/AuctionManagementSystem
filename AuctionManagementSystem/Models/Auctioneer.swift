@@ -8,12 +8,13 @@
 import Foundation
 
 
-class Auctioneer  {
+class Auctioneer:Staff  {
     
    
     let name :String
     let id : Int
     let password: String
+  
     
     init(name: String, id: Int, password: String) {
         self.name = name

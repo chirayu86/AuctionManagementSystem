@@ -48,6 +48,7 @@ class AuctioneerService: UserServices {
      
         let auction = dataBase.getAuction()
         
+//        let menu = MenuManager()
         
         guard auction == nil || auction?.status == AuctionStatus.closed else {
             
@@ -55,7 +56,8 @@ class AuctioneerService: UserServices {
         }
         
        
-            
+           
+//            menu.showItemList()
             print("enter the id of item you want to start the auction for")
             let id = input.getInteger(readLine())
           
@@ -149,7 +151,7 @@ class AuctioneerService: UserServices {
             
           
             // write to auction log
-            auction.auctionLog.append(AuctionLogMessage.auctionClosedWithBid.rawValue)
+            auction.auctionLog.append(AuctionLogMessage.auctionClosedWithBid.rawValue + "  userName:\(winner.userName)")
             
           
             //set auction winner name

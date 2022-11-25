@@ -8,12 +8,13 @@
 import Foundation
 
 class BuyerRegistrationService {
-    
-    let input = InputHelper()
-    let database =  DataBase.sharedDb
-    let registerationHelper = RegistrationHelper()
+
     
     func registerBuyer() {
+        
+        let input = InputHelper()
+        let database =  DataBase.sharedDb
+        let registerationHelper = RegistrationHelper()
        
         do
         {

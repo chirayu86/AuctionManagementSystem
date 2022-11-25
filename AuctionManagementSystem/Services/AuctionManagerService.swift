@@ -41,9 +41,9 @@ class AuctionManagerService :UserServices {
     
     private func selectItemStatus()->ItemStatus {
         
-        let printer = PrintHelper()
+        let printHelper = PrintHelper()
         
-        printer.printMessage(Message.selectItemStatus)
+        printHelper.printMessage(Message.selectItemStatus)
         let choice = input.getIntegerInRange(readLine(), 3)
         
         switch choice {
